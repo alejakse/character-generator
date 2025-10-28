@@ -45,7 +45,7 @@
 <h1 class="text-neutral-900 dark:text-white tracking-wide text-4xl md:text-5xl font-bold leading-tight px-4 pb-3 pt-6 font-heading">Your Next Legendary Hero Awaits</h1>
 <p class="text-neutral-700 dark:text-neutral-300 text-lg font-normal leading-normal pb-3 pt-1 px-4 max-w-2xl mx-auto">Click the button below to instantly generate a new Dungeons &amp; Dragons character. Let fate decide your name, class, abilities, and the epic tale that awaits.</p>
 <div class="flex px-4 py-5 justify-center">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-6 bg-primary text-white gap-3 text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-transform transform hover:scale-105">
+<button id="roll-button" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-6 bg-primary text-white gap-3 text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-transform transform hover:scale-105">
 <span class="material-symbols-outlined text-white">casino</span>
 <span class="truncate">Roll the Dice</span>
 </button>
@@ -197,7 +197,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const rollButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Roll the Dice');
+      const rollButton = document.getElementById('roll-button');
       if (rollButton) {
         rollButton.addEventListener('click', () => {
           const abilityScoreElements = document.querySelectorAll('.grid.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6 > div');
