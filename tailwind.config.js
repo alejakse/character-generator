@@ -31,10 +31,6 @@ module.exports = {
           "800": "#292524"
         }
       },
-      fontFamily: {
-        "display": ["Newsreader", "serif"],
-        "heading": ["Cinzel Decorative", "cursive"],
-      },
       borderRadius: {
         "lg": "0.5rem",
       },
