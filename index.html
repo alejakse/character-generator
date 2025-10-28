@@ -4,7 +4,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>D&amp;D Character Generator</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="dist/output.css" rel="stylesheet">
+<link rel="icon" href="data:,">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Uncial+Antiqua&amp;display=swap" rel="stylesheet"/>
@@ -204,4 +205,36 @@
 </div>
 </div>
 </div>
+<script>
+    function roll4d6dropLowest() {
+      const rolls = [];
+      for (let i = 0; i < 4; i++) {
+        rolls.push(Math.floor(Math.random() * 6) + 1);
+      }
+      rolls.sort((a, b) => a - b);
+      rolls.shift();
+      return rolls.reduce((a, b) => a + b, 0);
+    }
+
+    function calculateModifier(score) {
+      return Math.floor((score - 10) / 2);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const rollButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Roll the Dice');
+      if (rollButton) {
+        rollButton.addEventListener('click', () => {
+          const abilityScoreElements = document.querySelectorAll('.grid.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6 > div');
+          abilityScoreElements.forEach(element => {
+            const newScore = roll4d6dropLowest();
+            const newModifier = calculateModifier(newScore);
+            const scoreElement = element.querySelector('.text-3xl');
+            const modifierElement = element.querySelector('.text-lg');
+            scoreElement.textContent = newScore;
+            modifierElement.textContent = newModifier >= 0 ? `+${newModifier}` : newModifier;
+          });
+        });
+      }
+    });
+</script>
 </body></html>
