@@ -58,11 +58,11 @@
                                     </div>
                                     <div class="bg-transparent p-4 rounded-lg border border-stone-700">
                                         <h3 class="text-sm font-semibold text-neutral-400">Race</h3>
-                                        <p class="text-lg font-bold text-orange-50">Wood Elf</p>
+                                        <p id="race" class="text-lg font-bold text-orange-50">Wood Elf</p>
                                     </div>
                                     <div class="bg-transparent p-4 rounded-lg border border-stone-700">
                                         <h3 class="text-sm font-semibold text-neutral-400">Class</h3>
-                                        <p class="text-lg font-bold text-orange-50">Ranger</p>
+                                        <p id="class" class="text-lg font-bold text-orange-50">Ranger</p>
                                     </div>
                                     <div class="bg-transparent p-4 rounded-lg border border-stone-700">
                                         <h3 class="text-sm font-semibold text-neutral-400">Background</h3>
@@ -205,6 +205,15 @@
                         scoreElement.textContent = newScore;
                         modifierElement.textContent = newModifier >= 0 ? `+${newModifier}` : newModifier;
                     });
+
+                    const races = ["Human", "Dwarf", "Elf", "Halfling", "Gnome"];
+                    const classes = ["Bard", "Cleric", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Wizard"];
+
+                    const randomRace = races[Math.floor(Math.random() * races.length)];
+                    const randomClass = classes[Math.floor(Math.random() * classes.length)];
+
+                    document.getElementById('race').textContent = randomRace;
+                    document.getElementById('class').textContent = randomClass;
                 });
             }
         });
