@@ -204,4 +204,36 @@
 </div>
 </div>
 </div>
+<script>
+    function roll4d6dropLowest() {
+      const rolls = [];
+      for (let i = 0; i < 4; i++) {
+        rolls.push(Math.floor(Math.random() * 6) + 1);
+      }
+      rolls.sort((a, b) => a - b);
+      rolls.shift();
+      return rolls.reduce((a, b) => a + b, 0);
+    }
+
+    function calculateModifier(score) {
+      return Math.floor((score - 10) / 2);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const rollButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Roll the Dice');
+      if (rollButton) {
+        rollButton.addEventListener('click', () => {
+          const abilityScoreElements = document.querySelectorAll('.grid.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6 > div');
+          abilityScoreElements.forEach(element => {
+            const newScore = roll4d6dropLowest();
+            const newModifier = calculateModifier(newScore);
+            const scoreElement = element.querySelector('.text-3xl');
+            const modifierElement = element.querySelector('.text-lg');
+            scoreElement.textContent = newScore;
+            modifierElement.textContent = newModifier >= 0 ? `+${newModifier}` : newModifier;
+          });
+        });
+      }
+    });
+</script>
 </body></html>
