@@ -33,7 +33,7 @@ module.exports = {
       },
       fontFamily: {
         "display": ["Newsreader", "serif"],
-        "heading": ["Uncial Antiqua", "cursive"],
+        "heading": ["Cinzel Decorative", "cursive"],
       },
       borderRadius: {
         "lg": "0.5rem",
