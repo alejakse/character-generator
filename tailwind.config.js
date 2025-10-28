@@ -5,9 +5,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#d46c11",
+        "primary": "#D97706",
         "background-light": "#f8f7f6",
-        "background-dark": "#221810",
+        "background-dark": "#1A120B",
+        "amber": {
+          "400": "#FBBF24"
+        }
       },
       fontFamily: {
         "display": ["Newsreader", "serif"],
