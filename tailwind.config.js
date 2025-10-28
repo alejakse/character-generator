@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#D97706",
+        "primary": "#FFAC1C",
         "background-light": "#f8f7f6",
         "background-dark": "#1A120B",
         "amber": {
@@ -33,6 +33,7 @@ module.exports = {
       },
       borderRadius: {
         "lg": "0.5rem",
+        "xl": "0.75rem",
       },
     },
   },
