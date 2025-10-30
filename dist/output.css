@@ -7,9 +7,9 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-orange-50: #fff7ed;
-    --color-orange-100: #ffedd5;
-    --color-amber-400: #FBBF24;
+    --color-orange-50: oklch(98% 0.016 73.684);
+    --color-orange-100: oklch(95.4% 0.038 75.164);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-neutral-200: oklch(92.2% 0 0);
     --color-neutral-300: oklch(87% 0 0);
     --color-neutral-400: oklch(70.8% 0 0);
@@ -17,8 +17,8 @@
     --color-neutral-700: oklch(37.1% 0 0);
     --color-neutral-800: oklch(26.9% 0 0);
     --color-neutral-900: oklch(20.5% 0 0);
-    --color-stone-700: #44403c;
-    --color-stone-800: #292524;
+    --color-stone-700: oklch(37.4% 0.01 67.558);
+    --color-stone-800: oklch(26.8% 0.007 34.298);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -51,14 +51,10 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-primary: #FFAC1C;
-    --color-background-light: #f8f7f6;
-    --color-background-dark: #1A120B;
-    --color-green-neutral-200: #dcecdc;
-    --color-green-neutral-300: #b7d2b7;
-    --color-green-neutral-400: #7da87d;
-    --color-green-neutral-700: #446244;
-    --color-green-neutral-900: #1a281a;
+    --color-background-light: #9F8170;
+    --color-background-dark: #44403c;
+    --font-display: "Newsreader", "serif";
+    --font-heading: "Cinzel Decorative", "cursive";
   }
 }
 @layer base {
@@ -375,9 +371,6 @@
   .bg-background-light {
     background-color: var(--color-background-light);
   }
-  .bg-primary {
-    background-color: var(--color-primary);
-  }
   .bg-transparent {
     background-color: transparent;
   }
@@ -422,6 +415,12 @@
   }
   .text-center {
     text-align: center;
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-heading {
+    font-family: var(--font-heading);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -489,21 +488,6 @@
   .text-amber-400 {
     color: var(--color-amber-400);
   }
-  .text-green-neutral-200 {
-    color: var(--color-green-neutral-200);
-  }
-  .text-green-neutral-300 {
-    color: var(--color-green-neutral-300);
-  }
-  .text-green-neutral-400 {
-    color: var(--color-green-neutral-400);
-  }
-  .text-green-neutral-700 {
-    color: var(--color-green-neutral-700);
-  }
-  .text-green-neutral-900 {
-    color: var(--color-green-neutral-900);
-  }
   .text-neutral-600 {
     color: var(--color-neutral-600);
   }
@@ -518,9 +502,6 @@
   }
   .text-orange-50 {
     color: var(--color-orange-50);
-  }
-  .text-primary {
-    color: var(--color-primary);
   }
   .text-white {
     color: var(--color-white);
@@ -542,16 +523,6 @@
         --tw-scale-y: 105%;
         --tw-scale-z: 105%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:bg-primary\/90 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in srgb, #FFAC1C 90%, transparent);
-        @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-primary) 90%, transparent);
-        }
       }
     }
   }
@@ -622,11 +593,6 @@
       border-color: var(--color-neutral-700);
     }
   }
-  .dark\:border-primary {
-    @media (prefers-color-scheme: dark) {
-      border-color: var(--color-primary);
-    }
-  }
   .dark\:border-b-\[\#393028\] {
     @media (prefers-color-scheme: dark) {
       border-bottom-color: #393028;
@@ -655,16 +621,6 @@
       background-color: transparent;
     }
   }
-  .dark\:text-green-neutral-300 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-green-neutral-300);
-    }
-  }
-  .dark\:text-green-neutral-400 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-green-neutral-400);
-    }
-  }
   .dark\:text-neutral-200 {
     @media (prefers-color-scheme: dark) {
       color: var(--color-neutral-200);
@@ -690,26 +646,9 @@
       color: var(--color-orange-100);
     }
   }
-  .dark\:text-primary {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-primary);
-    }
-  }
   .dark\:text-white {
     @media (prefers-color-scheme: dark) {
       color: var(--color-white);
-    }
-  }
-  .dark\:hover\:bg-primary\/10 {
-    @media (prefers-color-scheme: dark) {
-      &:hover {
-        @media (hover: hover) {
-          background-color: color-mix(in srgb, #FFAC1C 10%, transparent);
-          @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
-          }
-        }
-      }
     }
   }
 }
