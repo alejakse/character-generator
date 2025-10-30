@@ -31,7 +31,7 @@
                             </div>
                             <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-green-neutral-900 dark:text-orange-100 font-heading">D&D Character Generator</h2>
                         </div>
-                        <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors dark:bg-transparent dark:text-primary dark:border dark:border-primary dark:hover:bg-primary/10 text-white">
+                        <button id="print-button" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors dark:bg-transparent dark:text-primary dark:border dark:border-primary dark:hover:bg-primary/10 text-white">
                             <span class="truncate">Print/Save as PDF</span>
                         </button>
                     </header>
@@ -214,6 +214,13 @@
 
                     document.getElementById('race').textContent = randomRace;
                     document.getElementById('class').textContent = randomClass;
+                });
+            }
+
+            const printButton = document.getElementById('print-button');
+            if (printButton) {
+                printButton.addEventListener('click', () => {
+                    window.print();
                 });
             }
         });
